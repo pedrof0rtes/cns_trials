@@ -105,7 +105,7 @@ Databricks (`/Volumes/cns_trials/1_bronze/raw_data`), unzipping and
 reading via PySpark, with control metadata (`_source_file`,
 `_ingested_at`, `_aact_snapshot`) added at ingestion time.
 
-**Script: [`notebooks/1_bronze.py`](./notebooks/1_bronze.ipynb).**
+**Script: [`notebooks/1_bronze.py`](./notebooks/1_bronze.py).**
 
 <br>
 
@@ -269,7 +269,7 @@ from the real value whenever ambiguity exists.
 
 ## Data Analysis
 
-**Notebook [`8_analysis.py`](./notebooks/8_analysis.ipynb).**
+**Notebook [`8_analysis.py`](./notebooks/8_analysis.py).**
 
 Scope: the
 78,272 studies in `fact_study`; the early termination denominator is
