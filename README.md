@@ -189,9 +189,9 @@ executed:
 5. [`5_gold.sql`](./notebooks/5_gold.sql) — 4 dimensions, 4 bridges, 1
    fact table (star schema).
 6. [`6_post_gold_checks.sql`](./notebooks/6_post_gold_checks.sql) - structural checks for the gold layer.
-7. [`7_quality.sql`](./notebooks/6_quality.sql) — quality
+7. [`7_quality.sql`](./notebooks/7_quality.sql) — quality
    investigation across the three layers (see next section).
-8. [`8_analysis.py`](./notebooks/7_analysis.py) — answers to the
+8. [`8_analysis.py`](./notebooks/8_analysis.py) — answers to the
    project's questions, with statistical tests and visualizations.
 
 Every relevant transformation has its purpose documented as a SQL comment
