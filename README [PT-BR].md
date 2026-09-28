@@ -101,7 +101,7 @@ chegam como texto (`string`), sem tipagem.
 Download manual do snapshot mensal do AACT (arquivo `.zip`
 com os `.txt` pipe-delimited), upload para um Volume do Unity Catalog no Databricks (`/Volumes/cns_trials/1_bronze/raw_data`), descompactação e leitura via PySpark, com metadados de controle (`_source_file`, `_ingested_at`, `_aact_snapshot`) adicionados na ingestão.
 
-**Script: [`notebooks/1_bronze.ipynb`](./notebooks/1_bronze.ipynb).**
+**Script: [`notebooks/1_bronze.py`](./notebooks/1_bronze.py).**
 
 <br>
 
@@ -171,21 +171,22 @@ coluna, na pasta `screenshots/`:
 
 Um notebook por etapa de refinamento do pipeline, na ordem em que devem ser executados:
 
-1. [`1_bronze.ipynb`](./notebooks/1_bronze.ipynb) — unzip e carga das 11
+1. [`1_bronze.py`](./notebooks/1_bronze.py) — unzip e carga das 11
    tabelas cruas.
-2. [`2_post_bronze_checks.ipynb`](./notebooks/2_post_bronze_checks.ipynb) —
+2. [`2_post_bronze_checks.py`](./notebooks/2_post_bronze_checks.py) —
    checks estruturais (existência de colunas, contagem de linhas).
-3. [`3_silver.ipynb`](./notebooks/3_silver.ipynb) — mapeamento MeSH →
+3. [`3_silver.sql`](./notebooks/3_silver.sql) — mapeamento MeSH →
    31 quadros diagnósticos, tabela-ponte de escopo, tabela `studies`
    refinada (tipagem, classificação do motivo de parada, duração), 7
    tabelas filhas limpas.
-4. [`4_post_silver_checks.ipynb`](./notebooks/4_post_silver_checks.ipynb) —
+4. [`4_post_silver_checks.sql`](./notebooks/4_post_silver_checks.sql) —
    checks estruturais (unicidade de chaves, integridade referencial).
-5. [`5_gold.ipynb`](./notebooks/5_gold.ipynb) — 4 dimensões, 4 pontes, 1
+5. [`5_gold.sql`](./notebooks/5_gold.sql) — 4 dimensões, 4 pontes, 1
    tabela fato (esquema estrela).
-6. [`6_quality.ipynb`](./notebooks/6_quality.ipynb) — investigação de
+6. [`6_post_gold_checks.sql`](./notebooks/6_post_gold_checks.sql) - checks estruturais da camada gold.
+6. [`7_quality.sql`](./notebooks/6_quality.sql) — investigação de
    qualidade nas três camadas (ver seção seguinte).
-7. [`7_analysis.ipynb`](./notebooks/7_analysis.ipynb) — resposta às
+7. [`8_analysis.py`](./notebooks/7_analysis.py) — resposta às
    perguntas do projeto, com testes estatísticos e visualizações.
 
 Cada transformação relevante tem seu propósito documentado em comentário
@@ -201,7 +202,7 @@ SQL na própria célula do notebook.
 ## Qualidade de Dados
 
 Investigação de qualidade completa no notebook
-[`6_quality.ipynb`](./notebooks/6_quality.ipynb), cobrindo completude,
+[`7_quality.sql`](./notebooks/7_quality.sql), cobrindo completude,
 consistência, unicidade, acurácia e outliers nas três camadas. Principais
 problemas encontrados e como foram tratados:
 
@@ -249,7 +250,7 @@ Convenção geral: **nulo nunca é tratado como zero ou falso** em nenhuma etapa
 
 ## Análise de Dados
 
-**Notebook [`7_analysis.ipynb`](./notebooks/7_analysis.ipynb).**
+**Notebook [`8_analysis.py`](./notebooks/8_analysis.py).**
 
 Escopo: os
 78.272 estudos da `fact_study`; denominador de término precoce restrito a

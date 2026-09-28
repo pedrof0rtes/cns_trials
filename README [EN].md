@@ -105,7 +105,7 @@ Databricks (`/Volumes/cns_trials/1_bronze/raw_data`), unzipping and
 reading via PySpark, with control metadata (`_source_file`,
 `_ingested_at`, `_aact_snapshot`) added at ingestion time.
 
-**Script: [`notebooks/1_bronze.ipynb`](./notebooks/1_bronze.ipynb).**
+**Script: [`notebooks/1_bronze.py`](./notebooks/1_bronze.ipynb).**
 
 <br>
 
@@ -176,21 +176,22 @@ in the `screenshots/` folder:
 One notebook per pipeline refinement stage, in the order they should be
 executed:
 
-1. [`1_bronze.ipynb`](./notebooks/1_bronze.ipynb) — unzip and load of the
+1. [`1_bronze.py`](./notebooks/1_bronze.py) — unzip and load of the
    11 raw tables.
-2. [`2_post_bronze_checks.ipynb`](./notebooks/2_post_bronze_checks.ipynb) —
+2. [`2_post_bronze_checks.py`](./notebooks/2_post_bronze_checks.py) —
    structural checks (column existence, row counts).
-3. [`3_silver.ipynb`](./notebooks/3_silver.ipynb) — MeSH mapping →
+3. [`3_silver.sql`](./notebooks/3_silver.sql) — MeSH mapping →
    31 diagnostic frameworks, scope bridge table, refined `studies` table
    (typing, reason-for-stopping classification, duration), 7 cleaned
    child tables.
-4. [`4_post_silver_checks.ipynb`](./notebooks/4_post_silver_checks.ipynb) —
+4. [`4_post_silver_checks.sql`](./notebooks/4_post_silver_checks.sql) —
    structural checks (key uniqueness, referential integrity).
-5. [`5_gold.ipynb`](./notebooks/5_gold.ipynb) — 4 dimensions, 4 bridges, 1
+5. [`5_gold.sql`](./notebooks/5_gold.sql) — 4 dimensions, 4 bridges, 1
    fact table (star schema).
-6. [`6_quality.ipynb`](./notebooks/6_quality.ipynb) — quality
+6. [`6_post_gold_checks.sql`](./notebooks/6_post_gold_checks.sql) - structural checks for the gold layer.
+7. [`7_quality.sql`](./notebooks/6_quality.sql) — quality
    investigation across the three layers (see next section).
-7. [`7_analysis.ipynb`](./notebooks/7_analysis.ipynb) — answers to the
+8. [`8_analysis.py`](./notebooks/7_analysis.py) — answers to the
    project's questions, with statistical tests and visualizations.
 
 Every relevant transformation has its purpose documented as a SQL comment
@@ -206,7 +207,7 @@ in the notebook cell itself.
 ## Data Quality
 
 Full quality investigation in the notebook
-[`6_quality.ipynb`](./notebooks/6_quality.ipynb), covering completeness,
+[`7_quality.sql`](./notebooks/7_quality.sql), covering completeness,
 consistency, uniqueness, accuracy, and outliers across the three layers.
 Main issues found and how they were treated:
 
@@ -268,7 +269,7 @@ from the real value whenever ambiguity exists.
 
 ## Data Analysis
 
-**Notebook [`7_analysis.ipynb`](./notebooks/7_analysis.ipynb).**
+**Notebook [`8_analysis.py`](./notebooks/8_analysis.ipynb).**
 
 Scope: the
 78,272 studies in `fact_study`; the early termination denominator is
