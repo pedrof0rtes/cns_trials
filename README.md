@@ -77,7 +77,7 @@ _Aggregate Analysis of ClinicalTrials.gov (AACT) Database. Clinical Trials Trans
 
 <BR>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[1] data_collection_aact_flat.png)
+![](/screenshots/[1] data_collection_aact_flat.png)
 
 <br>
 
