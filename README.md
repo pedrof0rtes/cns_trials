@@ -77,7 +77,7 @@ _Aggregate Analysis of ClinicalTrials.gov (AACT) Database. Clinical Trials Trans
 
 <BR>
 
-![](screenshots/[1] data_collection_aact_flat.png)
+![](<screenshots/[1] data_collection_aact_flat.png>)
 
 <br>
 
@@ -132,7 +132,7 @@ same Unity Catalog catalog (`cns_trials`):
 
 <br>
 
-![](screenshots/[9.1] gold - catalog_strucutre_step_7.png)
+![](<screenshots/[9.1] gold - catalog_strucutre_step_7.png>)
 
 <br>
 
