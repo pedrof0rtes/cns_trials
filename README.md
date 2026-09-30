@@ -153,7 +153,7 @@ have more than one intervention type, etc.):
 
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/gold_star_schema_final.png)
+![](<screenshots/gold_star_schema_final.png>)
 
 <br>
 
@@ -212,7 +212,7 @@ in the notebook cell itself.
 
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/databricks_notebooks.png)
+![](<screenshots/databricks_notebooks.png>)
 
 <br>
 
@@ -303,7 +303,7 @@ exploratory, not confirmatory.
 * **Overall distribution of clinical trials by disorder (1980 - 2025)**: See [`8_analysis.py`](./notebooks/8_analysis.py) for a full view of clinical trials distribution by disorder.
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[11] analysis_1.png)
+![](<screenshots/[11] analysis_1.png>)
 
 <br>
 
@@ -312,7 +312,7 @@ exploratory, not confirmatory.
   for ~39% of reasons in 2020-2021 and disappears outside that window.
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[14] analysis_4.png)
+![](<screenshots/[14] analysis_4.png>)
 
 
 
@@ -323,7 +323,7 @@ exploratory, not confirmatory.
   injury have the highest early termination rates (~19-20%); Personality
   disorders and OCD, the lowest.
 
-  ![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[13] analysis_3.png)
+  ![](<screenshots/[13] analysis_3.png>)
 
 
 
@@ -336,7 +336,7 @@ exploratory, not confirmatory.
   rate (20+ sites: 16.5% vs. 1 site: 11.0%).
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[15] analysis_5.png)
+![](<screenshots/[15] analysis_5.png>)
 
 <br>
 
@@ -348,9 +348,9 @@ exploratory, not confirmatory.
   a higher rate (18.6%).
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[17] analysis_7.png)
+![](<screenshots/[17] analysis_7.png>)
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[18] analysis_8.png)
+![](<screenshots/[18] analysis_8.png>)
 
 <br>
 
@@ -359,7 +359,7 @@ exploratory, not confirmatory.
   than the rest.
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[19] analysis_9.png)
+![](<screenshots/[19] analysis_9.png>)
 
 <br>
 
@@ -368,7 +368,7 @@ exploratory, not confirmatory.
   Other, the lowest (7-9%).
 <br>
 
-![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[20] analysis_10.png)
+![](<screenshots/[20] analysis_10.png>)
 <br>
 
 <br>
