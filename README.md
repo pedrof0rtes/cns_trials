@@ -75,6 +75,10 @@ in 2026-09.
 * Citation:
 _Aggregate Analysis of ClinicalTrials.gov (AACT) Database. Clinical Trials Transformation Initiative (CTTI). Available at: https://aact.ctti-clinicaltrials.org/ (Accessed: 2026-09)._
 
+<BR>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[1] data_collection_aact_flat.png)
+
 <br>
 
 ### Raw data structure
@@ -128,6 +132,10 @@ same Unity Catalog catalog (`cns_trials`):
 
 <br>
 
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[9.1] gold - catalog_strucutre_step_7.png)
+
+<br>
+
 ### Star schema (Gold)
 
 One fact table and four dimensions, linked by four bridge tables (the
@@ -144,6 +152,11 @@ have more than one intervention type, etc.):
 * `dim_country` + `bridge_study_country` — 167 countries.
 
 <br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/gold_star_schema_final.png)
+
+<br>
+
 
 ### Data catalog
 
@@ -197,6 +210,9 @@ executed:
 Every relevant transformation has its purpose documented as a SQL comment
 in the notebook cell itself.
 
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/databricks_notebooks.png)
 
 <br>
 
@@ -284,29 +300,76 @@ exploratory, not confirmatory.
 
 **Questions answered:**
 
-* **Reasons for stopping** - Recruitment is the most common reason in
-  both `Terminated` (34.9%) and `Withdrawn` (24.7%), followed by
-  Funding/business. The composition changes over time: COVID-19 accounts
+* **Overall distribution of clinical trials by disorder (1980 - 2025)**: See [`8_analysis.py`](./notebooks/8_analysis.py) for a full view of clinical trials distribution by disorder.
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[11] analysis_1.png)
+
+<br>
+
+
+* **Reasons for stopping** - Recruitment is the most common **and persistent** reason in `Terminated` studies (34.9%), and the most common for `Withdrawn` studies (24.7%) on average, followed by Funding/business. The composition changes over time: COVID-19 accounts
   for ~39% of reasons in 2020-2021 and disappears outside that window.
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[14] analysis_4.png)
+
+
+
+<br>
+
 * **Rate by disorder** - significant variation (chi-square,
   p < 0.0001); ALS/motor neuron disease, Epilepsy, and Traumatic brain
   injury have the highest early termination rates (~19-20%); Personality
   disorders and OCD, the lowest.
+
+  ![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[13] analysis_3.png)
+
+
+
+
+<br>
+
+<br>
+
 * **Sites** - more sites is associated with a higher early termination
   rate (20+ sites: 16.5% vs. 1 site: 11.0%).
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[15] analysis_5.png)
+
+<br>
+
 * **Placebo, arms, and duration** - studies with placebo have a higher
   rate than studies without placebo (16.2% vs. 11.4%); studies with 1 arm
   have a higher rate than studies with 2 or 3+; crossing the two
   variables shows the effects are independent (placebo raises the risk
   within each arm-count band). Longer planned durations (12+ months) have
   a higher rate (18.6%).
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[17] analysis_7.png)
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[18] analysis_8.png)
+
+<br>
+
 * **Number of monitored outcomes** - significant but weak association;
   studies with few outcomes (1-2) have a slightly higher rate (14.0%)
   than the rest.
+<br>
+
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[19] analysis_9.png)
+
+<br>
+
 * **Intervention type** - strong variation (chi-square, p < 0.0001):
   Radiation and Genetic have the highest rates (23-26%); Behavioral and
   Other, the lowest (7-9%).
+<br>
 
+![](/Workspace/Users/pedrofarangel@gmail.com/cns_trials/screenshots/[20] analysis_10.png)
+<br>
 
 <br>
 
@@ -400,7 +463,7 @@ own analysis in addition to appearing as a complementary answer in nearly
 every other question.
 
 **Difficulties:** most of the project's effort was centered on data
-quality, in particular two extensive manual coding efforts. The first was
+quality, in particular two extensive manual coding efforts in the [`silver layer`](./notebooks/3_silver.sql). The first was
 classifying the `why_stopped` field (free text, reason for stopping) into
 7 categories, which required several rounds of refinement with the help
 of LLMs against real false positives (e.g. "corona radiata", a brain
@@ -408,6 +471,11 @@ structure, being mistakenly captured by the COVID-19 rule). The second
 was mapping MeSH terms into 31 diagnostic frameworks, which required
 extensive investigation due to automatic mapping errors and high
 redundancy in the source itself.
+
+
+
+
+
 
 **Future work:**
 
